@@ -1,0 +1,48 @@
+body {
+    background-color: green;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: darkgreen;
+    max-width: 700px;
+    width: 90%;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#playerContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    height:30%;
+    background-color: blue;
+
+    
+}
+#playerOptions {
+    
+}
+#dealerContainer {
+    display: flex;
+    justify-content: center;
+    
+    width: 90%;
+    height:30%;
+    background-color: red;
+}
+.btnSize {
+    width: 60px;
+    height: 30px;
+}
+#hitBtn {
+   margin-right: 10px; 
+}
+#standBtn {
+    margin-left: 10px;
+}
+

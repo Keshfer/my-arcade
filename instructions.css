@@ -1,0 +1,17 @@
+body {
+    background-color: green;
+}
+
+#instructBox {
+    background-color: darkgreen;
+    color:bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#solitareImg {
+    height: 500px;
+}

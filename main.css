@@ -1,0 +1,46 @@
+
+body {
+    background-color: green;
+    margin: 0;
+}
+#header {
+    display: flex;
+    background-color: aquamarine;
+    padding:15px;
+    text-align: center;
+}
+#bodyContent {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.gameBox {
+    background-color: darkgreen;
+}
+.gameContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+.gameButton {
+    width: 70px;
+    margin: 15px;
+}
+.gamePic {
+    width: 256px;
+}
+#game1 {
+}
+#title {
+    margin-left: auto;
+    margin-right: auto;
+}
+#instructButton {
+    height: 50px;
+    margin-top: 15px;
+    margin-right: 15px;
+}
