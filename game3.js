@@ -47,23 +47,78 @@ class Deck {
         return card;
     }
 }
+
+
+function drawPairs() {
+    
+    for(let i = 0; i < 8; i++) {
+        let card = deck.drawCard();
+        let copyCard = new Card(card.suit, card.rank, card.value, card.img);
+        cardPairs.push(card);
+        cardPairs.push(copyCard);
+    }
+}
+function pairShuffle() {
+    let card1Index;
+    let card2Index;
+    let tmp;
+    for(let i = 0; i < cardPairs.length; i++) {
+        card1Index = Math.floor((Math.random() * cardPairs.length));
+        card2Index = Math.floor((Math.random() * cardPairs.length));
+        tmp = cardPairs[card1Index];
+        cardPairs[card1Index] = cardPairs[card2Index];
+        cardPairs[card2Index] = tmp;
+    }
+}
+function flip(e) {
+    let cardData = e.currentTarget.getAttribute("data-card");
+    this.setAttribute("src", cardData);
+    checkMatch(e);
+}
+function unflip() {
+    firstPick.setAttribute("src", "./img/backcard.png");
+    secondPick.setAttribute("src", "./img/backcard.png");
+}
+function checkMatch(e) {
+    if(!firstPicked) {
+        firstPick = e.currentTarget;
+        firstPicked = true
+        return
+    } else {
+        secondPick = e.currentTarget;
+        if(firstPick.getAttribute("data-card") === secondPick.getAttribute("data-card")) {
+            console.log("yay");
+        } else {
+            console.log("aw");
+            window.setTimeout(unflip, 5000);
+        }
+        firstPick = ""
+        secondPick = ""
+        firstPicked = false;
+    }
+}
+let cardPairs = [];
 let deck = new Deck();
+let firstPick;
+let secondPick;
+let firstPicked = false;
 function gameStart() {
     deck.createDeck();
     deck.shuffleDeck();
+    drawPairs();
+    pairShuffle();
     let container = document.getElementById("container");
-    for(let i =0; i < 5; i++) {
+    for(let i =0; i < 4; i++) {
         let row = document.createElement("div");
         row.setAttribute("class", "row");
-        for(let j = 0; j < 5; j++) {
-            let cardDiv = document.createElement("div");
-            let card = deck.drawCard();
-            cardDiv.setAttribute("data-card", card);
+        for(let j = 0; j < 4; j++) {
+            let card = cardPairs.pop();
             let cardImg = document.createElement("img");
             cardImg.setAttribute("src", "./img/backcard.png");
             cardImg.setAttribute("height", "120px");
-            cardDiv.append(cardImg)
-            row.append(cardDiv);
+            cardImg.setAttribute("data-card", card.getImg());
+            cardImg.addEventListener("click", flip);
+            row.append(cardImg);
         }
         container.append(row);
     }
