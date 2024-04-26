@@ -42,6 +42,15 @@ let scoreBlockTime = document.createElement('div');
 scoreBlockTime.className = 'scoreBlock';
 scoreArea.append(scoreBlockTime);
 
+let exitBtn = document.createElement("button");
+let exitText = document.createTextNode("Exit");
+exitBtn.append(exitText);
+exitBtn.setAttribute("id", "exit");
+exitBtn.addEventListener("click", function() {
+    window.location.href = "main.html";
+})
+scoreArea.append(exitBtn);
+
 let scoreValueTime = document.createElement('span');
 scoreValueTime.className = 'scoreValue';
 scoreValueTime.innerText = '0:00';

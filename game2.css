@@ -17,10 +17,11 @@ body {
 #playerContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 90%;
     height:30%;
-    background-color: blue;
+    /*background-color: blue;*/
 
     
 }
@@ -30,19 +31,37 @@ body {
 #dealerContainer {
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+    flex-wrap: wrap-reverse;
     width: 90%;
     height:30%;
-    background-color: red;
+    /*background-color: red;*/
 }
 .btnSize {
-    width: 60px;
-    height: 30px;
+    width: 120px;
+    height: 60px;
 }
 #hitBtn {
    margin-right: 10px; 
 }
 #standBtn {
     margin-left: 10px;
+}
+#exit {
+    /*margin-right: 25%;*/
+    width: 60px;
+    height: 30px;
+}
+#gameResult {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    /*width: 50%;
+    height: 500px;*/
+    bottom: 55%;
+    left: 30%;
+    right: 30%;
+    /*left: 15%;*/
 }
 
