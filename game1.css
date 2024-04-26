@@ -58,9 +58,12 @@ body {
 	border: none;
 }
 #scoreArea{
+	display:flex;
+	justify-content: center;
+	align-items: center;
 	border: 10px solid;
     width: 738px;
-    position: absolute;
+    /*position: absolute;*/
     margin: auto;
     top: calc(50% + 241px);
     left: calc(50% - 379px);
@@ -69,16 +72,19 @@ body {
 }
 #exit {
     /*margin-right: 25%;*/
+	top: 50%;
     width: 60px;
     height: 30px;
+	left: 45%;
+	top: 92%;
 }
 .scoreBlock{
 	display: inline-block;
 	position: relative;
-	top: 40px;
+	/*top: 40px;*/
 	width: 50%;
 	height: 56px;
-	background-color: #000;
+	/*background-color: #000;*/
 }
 .scoreValue{
 	display: block;
