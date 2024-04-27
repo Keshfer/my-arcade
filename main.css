@@ -3,9 +3,21 @@ body {
     background-color: green;
     margin: 0;
 }
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color:  darkgreen;
+    margin: 0;
+    margin-top: 11%;
+    padding: 10px;
+    color: beige;
+    text-align: center;
+}
 #header {
     display: flex;
     background-color: aquamarine;
+    justify-content: space-evenly;
     padding:15px;
     text-align: center;
 }
@@ -13,10 +25,12 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .gameBox {
     background-color: darkgreen;
+    margin: 20px;
 }
 .gameContent {
     display: flex;
@@ -31,9 +45,7 @@ body {
     margin: 15px;
 }
 .gamePic {
-    width: 256px;
-}
-#game1 {
+    width: 200px;
 }
 #title {
     margin-left: auto;
@@ -44,3 +56,36 @@ body {
     margin-top: 15px;
     margin-right: 15px;
 }
+.gameText {
+    color: beige;
+    font-size: 20px;
+}
+#bottomText {
+    text-align: center;
+    color: beige;
+}
+@media (max-width: 750px) {
+    body {
+        background-color: green;
+    }
+    #bodyContent {
+        margin-top: 0;
+        margin-bottom: 20%;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        align-items:center;
+        
+
+    }
+    .gameBox {
+        max-width: 200px;
+    }
+    .gamePic {
+        width: 190px;
+
+    }
+    .gameContent {
+        padding: 10px;
+    }
+} 

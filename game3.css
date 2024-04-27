@@ -13,6 +13,9 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+.cardHeight {
+    height: 120px;
+}
 .row {
     display: flex;
     margin-left: auto;
@@ -26,4 +29,48 @@ body {
 }
 .flip {
     transform: rotateY(180deg);
+}
+#gameResult {
+    display: flex;
+    /*position: absolute;*/
+    flex-direction: column;
+    align-items: center;
+    /*left :0;
+    right:0;
+    bottom: 0;
+    top: 75%;*/
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10%;
+    color: blue;
+}
+.btnSize {
+    width: 60px;
+    height: 30px;
+}
+#exitBtn {
+    /*position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-bottom: 5%;*/
+}
+#bottomContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+@media (max-width: 750px) {
+    .cardHeight {
+        height: 100px;
+    }
 }

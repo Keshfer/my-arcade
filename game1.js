@@ -21,11 +21,13 @@ function clearGlobal(){
 	dropArray = [];
 	toDeal = [];
 }
+/*
 document.addEventListener('keydown', function(event) {
 	if (event.code == 'KeyD') {
 		gameStart();
 	}
 });
+*/
 let container = document.createElement('div');
 container.id = 'container';
 document.body.prepend(container);
@@ -41,7 +43,16 @@ container.append(scoreArea);
 let scoreBlockTime = document.createElement('div');
 scoreBlockTime.className = 'scoreBlock';
 scoreArea.append(scoreBlockTime);
-
+//restart button
+let restartBtn = document.createElement("button")
+let restartText = document.createTextNode("Restart");
+restartBtn.append(restartText);
+restartBtn.setAttribute("id", "restart");
+restartBtn.addEventListener("click", function() {
+	gameStart();
+})
+scoreArea.append(restartBtn);
+// exit button
 let exitBtn = document.createElement("button");
 let exitText = document.createTextNode("Exit");
 exitBtn.append(exitText);
@@ -78,10 +89,12 @@ function gameStart(){
 	}
 	gameArea.innerHTML = '';
 
+	/*
 	let gameAreaSpan = document.createElement('span');
 	gameAreaSpan.id = 'gameAreaSpan';
 	gameAreaSpan.innerText = 'Press D to deal again';
 	gameArea.append(gameAreaSpan);
+	*/
 	/*probably for stack pile*/
 	newCardBlock = document.createElement('div');
 	newCardBlock.className = 'cardBlockNewClick cardHidden';

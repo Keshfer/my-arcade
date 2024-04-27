@@ -78,7 +78,7 @@ function checkBust(cardVal) {
     if(sum > 21) {
         playerTurn = false;
         resultWindow(true);
-        console.log("bust");
+        //console.log("bust");
     }
 
 
@@ -103,7 +103,8 @@ function dealerWins() {
         }
         let drawnCardImg = document.createElement("img");
         drawnCardImg.setAttribute("src", drawnCard.getImg());
-        drawnCardImg.setAttribute("height", "120px");
+        //drawnCardImg.setAttribute("height", "120px");
+        drawnCardImg.setAttribute("class", "cardHeight");
 
         let dealerContainer = document.getElementById("dealerContainer");
         dealerContainer.append(drawnCardImg);
@@ -130,7 +131,8 @@ function hit() {
             player11Aces += 1;
         }
         cardImage.setAttribute("src", card.getImg());
-        cardImage.setAttribute("height", "120px");
+        //cardImage.setAttribute("height", "120px");
+        cardImage.setAttribute("class", "cardHeight");
         playerContainer.append(cardImage);
         playerCards.push(card);
         checkBust(card.value);
@@ -142,7 +144,6 @@ function stand() {
 }
 function resultWindow(result) {
     let bodyContainer = document.getElementsByTagName("body");
-    console.log(bodyContainer);
     let resultContainer = document.createElement("div");
     resultContainer.setAttribute("id", "gameResult");
     resultContainer.style.fontSize = "60px";
@@ -159,16 +160,15 @@ function resultWindow(result) {
 
     //let words = document.createElement("")
     if(result) {
-        console.log("lose");
+        //console.log("lose");
         resultContainer.style.color = "red";
         resultContainer.innerText = "You Lose";
     } else {
-        console.log("win");
+        //console.log("win");
         resultContainer.style.color = "blue";
         resultContainer.innerText = "You Win";
     }
     resultContainer.append(playBtn);
-    console.log(resultContainer);
     bodyContainer[0].append(resultContainer);
     
 
@@ -203,9 +203,11 @@ function gameStart() {
 
     /*dealer starter cards*/
     hiddenCardImg.setAttribute("src", "./img/backcard.png");
-    hiddenCardImg.setAttribute("height", "120px");
+    //hiddenCardImg.setAttribute("height", "120px");
+    hiddenCardImg.setAttribute("class", "cardHeight");
     cardImage.setAttribute("src", card.getImg());
-    cardImage.setAttribute("height", "120px");
+    //cardImage.setAttribute("height", "120px");
+    cardImage.setAttribute("class", "cardHeight");
     dealerContainer.append(hiddenCardImg);
     dealerContainer.append(cardImage);
     dealerCards.push(hiddenCard);
@@ -219,7 +221,8 @@ function gameStart() {
         }
         let pCardImage = document.createElement("img");
         pCardImage.setAttribute("src", pCard.getImg());
-        pCardImage.setAttribute("height", "120px");
+        //pCardImage.setAttribute("height", "120px");
+        pCardImage.setAttribute("class", "cardHeight");
         playerContainer.append(pCardImage);
         playerCards.push(pCard);
 

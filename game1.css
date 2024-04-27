@@ -17,7 +17,7 @@ body {
 	background: green;
 }
 #gameArea{
-	position: relative;
+	/*position: relative;*/
 	top: calc(50% - 348px);
 	width: 728px;
 	height: 600px;
@@ -77,6 +77,10 @@ body {
     height: 30px;
 	left: 45%;
 	top: 92%;
+}
+#restart {
+	width: 60px;
+	height: 30px;
 }
 .scoreBlock{
 	display: inline-block;
