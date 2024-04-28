@@ -122,6 +122,10 @@ function gameStart(){
 		aceBlock.addEventListener('dragover', function(){
 			allowDrop(event);
 		});
+		aceBlock.addEventListener("touchend", function(e) {
+			//console.log("touch end");
+			aceDrop(e);
+		})
 		gameArea.append(aceBlock);
 	}
 
@@ -137,6 +141,12 @@ function gameStart(){
 		playBlock.addEventListener('dragover', function(){
 			allowDrop(event);
 		});
+		playBlock.addEventListener("touchend", function(e) {
+			//console.log("touch start");
+			//console.log(e)
+			drop(e.currentTarget);
+		})
+		
 		gameArea.append(playBlock);
 
 		dealCards(i, playBlock);
@@ -219,6 +229,19 @@ function drag(ev) {
 		let cardPos = Array.from(ev.target.parentNode.children).indexOf(ev.target);
 		for(let i = cardPos + 1; i < cardsEl.length; i++){
 			dropArray.push(cardsEl[i].id);
+		}
+	}
+}
+function mobiledrag(ev) {
+	dropArray = [];
+	ev.setAttribute("data-card", ev.id);
+	dropArray.push(ev.id);
+	let cardBlockParent = ev.closest(".cardBlock");
+	if(cardBlockParent != null) {
+		let cardsEl = cardBlockParent.getElementsByClassName("card");
+		let cardPos = Array.from(ev.parentNode.children).indexOf(ev);
+		for(let i = cardPos + 1; i < cardsEl.length; i++) {
+			dropArray.push(cardsE1[i].id);
 		}
 	}
 }
@@ -431,8 +454,15 @@ function dealCards(count, playBlock){
 				card.setAttribute('deal-card', true);
 			}
 			card.addEventListener('dragstart', function(){
+				console.log("drag start");
+				console.log(event);
 				drag(event);
 			});
+			card.addEventListener("touchmove", function(e) {
+				//console.log("touch start");
+				//console.log(e)
+				mobiledrag(e.currentTarget);
+			})
 			playBlock.append(card);
 
 			let numberTop = document.createElement('div');
