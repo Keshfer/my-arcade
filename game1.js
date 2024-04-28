@@ -58,7 +58,7 @@ let exitText = document.createTextNode("Exit");
 exitBtn.append(exitText);
 exitBtn.setAttribute("id", "exit");
 exitBtn.addEventListener("click", function() {
-    window.location.href = "main.html";
+    window.location.href = "index.html";
 })
 scoreArea.append(exitBtn);
 

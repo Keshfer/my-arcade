@@ -142,7 +142,7 @@ function checkWin() {
 }
 let exitBtn = document.getElementById("exitBtn");
 exitBtn.addEventListener("click", function() {
-    window.location.href = "main.html";
+    window.location.href = "index.html";
 });
 
 let cardPairs = [];

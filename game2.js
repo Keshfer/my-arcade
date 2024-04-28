@@ -249,6 +249,6 @@ standBtn.addEventListener("click", function() {
 }) 
 let exitBtn = document.getElementById("exit");
 exitBtn.addEventListener("click", function() {
-    window.location.href = "main.html";
+    window.location.href = "index.html";
 })
 gameStart();

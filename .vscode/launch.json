@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "C:/Local repositories/my arcade/main.html",
+            "url": "C:/Local repositories/my arcade/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
