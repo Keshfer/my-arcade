@@ -454,8 +454,8 @@ function dealCards(count, playBlock){
 				card.setAttribute('deal-card', true);
 			}
 			card.addEventListener('dragstart', function(){
-				console.log("drag start");
-				console.log(event);
+				//console.log("drag start");
+				//console.log(event);
 				drag(event);
 			});
 			card.addEventListener("touchmove", function(e) {
