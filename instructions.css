@@ -18,3 +18,10 @@ body {
 p {
     text-align: center;
 }
+#exit {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 60px;
+    height: 30px;
+}
