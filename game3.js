@@ -20,7 +20,7 @@ class Deck {
         let values = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
         for (let i = 0; i < suits.length; i++) {
             for(let j = 0; j < ranks.length; j++) {
-                let cardImg = "./img/Vector Cards/Single Cards (One Per File)/" + suits[i].toUpperCase() + "-" + (j+1).toString() + ".svg";
+                let cardImg = "img/Vector Cards/Single Cards (One Per File)/" + suits[i].toUpperCase() + "-" + (j+1).toString() + ".svg";
                 this.cards.push(new Card(suits[i], ranks[j], values[j], cardImg));
             }
         }
