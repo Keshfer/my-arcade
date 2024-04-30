@@ -51,6 +51,11 @@ restartBtn.setAttribute("id", "restart");
 restartBtn.addEventListener("click", function() {
 	gameStart();
 })
+document.addEventListener("keydown", function(e) {
+	if(e.key === "r") {
+		gameStart();
+	}
+})
 scoreArea.append(restartBtn);
 // exit button
 let exitBtn = document.createElement("button");

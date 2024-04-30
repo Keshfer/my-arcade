@@ -48,18 +48,10 @@ body {
     width: 60px;
     height: 30px;
 }
-#exitBtn {
-    /*position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;*/
-    margin-left: auto;
-    margin-right: auto;
-    /*margin-bottom: 5%;*/
-}
+
 #bottomContainer {
     display: flex;
-    flex-direction: column-reverse;
+    justify-content: center;
     left: 0;
     right: 0;
     bottom: 0;

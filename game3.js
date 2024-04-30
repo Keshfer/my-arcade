@@ -144,6 +144,17 @@ let exitBtn = document.getElementById("exitBtn");
 exitBtn.addEventListener("click", function() {
     window.location.href = "index.html";
 });
+let restartBtn = document.getElementById("restartBtn");
+restartBtn.addEventListener("click", function() {
+    gameStart();
+})
+document.addEventListener("keydown", function(e) {
+    if(e.key === "r") {
+        gameStart();
+    } else if(e.key === "e") {
+        window.location.href = "index.html";
+    }
+})
 
 let cardPairs = [];
 let deck = new Deck();
@@ -158,6 +169,8 @@ function gameStart() {
     drawPairs();
     pairShuffle();
     pairedCardCounter = 0;
+    firstPicked = false;
+    lock = false;
     let container = document.getElementById("container");
     container.innerHTML="";
     for(let i =0; i < 4; i++) {

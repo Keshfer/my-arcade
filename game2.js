@@ -251,4 +251,13 @@ let exitBtn = document.getElementById("exit");
 exitBtn.addEventListener("click", function() {
     window.location.href = "index.html";
 })
+let restartBtn = document.getElementById("restart");
+restartBtn.addEventListener("click", gameStart);
+document.addEventListener("keydown", function(e) {
+    if(e.key === "e") {
+        window.location.href = "index.html"
+    } else if(e.key === "r") {
+        gameStart();
+    }
+})
 gameStart();

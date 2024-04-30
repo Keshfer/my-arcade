@@ -49,6 +49,10 @@ body {
     width: 60px;
     height: 30px;
 }
+#restart {
+    width: 60px;
+    height:30px;
+}
 #gameResult {
     display: flex;
     position: absolute;
