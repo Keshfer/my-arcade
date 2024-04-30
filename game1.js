@@ -10,7 +10,7 @@ let toDeal = [];
 let timer;
 let newCardBlock;
 let newCardFlipBlock;
-
+// clears global game data
 function clearGlobal(){
 	clearInterval(timer);
 	lastCard = 51;
@@ -83,7 +83,7 @@ scoreBlockMoves.append(scoreValueMoves);
 
 gameStart();
 
-
+// resets all global values and sets up the game
 function gameStart(){
 	clearGlobal();
 	shuffleCards(1, cards);
@@ -100,7 +100,8 @@ function gameStart(){
 	gameAreaSpan.innerText = 'Press D to deal again';
 	gameArea.append(gameAreaSpan);
 	*/
-	/*probably for stack pile*/
+
+	/*stack pile*/
 	newCardBlock = document.createElement('div');
 	newCardBlock.className = 'cardBlockNewClick cardHidden';
 	gameArea.append(newCardBlock);
@@ -113,7 +114,7 @@ function gameStart(){
 		dealCards(0, newCardFlipBlock);
 		increaseMoves();
 	});
-    /*probably waste pile*/
+    /*waste pile*/
 	let blankBlock = document.createElement('div');
 	blankBlock.className = 'blankBlock';
 	gameArea.append(blankBlock);
@@ -121,12 +122,13 @@ function gameStart(){
 	for(let i = 0; i < 4; i++){
 		let aceBlock = document.createElement('div');
 		aceBlock.className = 'cardBlockAce';
-		aceBlock.addEventListener('drop', function(){
-			aceDrop(event);
+		aceBlock.addEventListener('drop', function(e){
+			aceDrop(e);
 		});
-		aceBlock.addEventListener('dragover', function(){
-			allowDrop(event);
+		aceBlock.addEventListener('dragover', function(e){
+			allowDrop(e);
 		});
+		//needed for after the finger is lifted from the dragged card
 		aceBlock.addEventListener("touchend", function(e) {
 			//console.log("touch end");
 			aceDrop(e);
@@ -140,12 +142,13 @@ function gameStart(){
 	for(let i = 0; i < 7; i++){
 		let playBlock = document.createElement('div');
 		playBlock.className = 'cardBlock';
-		playBlock.addEventListener('drop', function(){
-			drop(event);
+		playBlock.addEventListener('drop', function(e){
+			drop(e);
 		});
-		playBlock.addEventListener('dragover', function(){
-			allowDrop(event);
+		playBlock.addEventListener('dragover', function(e){
+			allowDrop(e);
 		});
+		//needed for when the card is dropped on the playBlock on mobile
 		playBlock.addEventListener("touchend", function(e) {
 			//console.log("touch start");
 			//console.log(e)
@@ -156,6 +159,11 @@ function gameStart(){
 
 		dealCards(i, playBlock);
 	}
+
+
+	scoreValueTime.innerText = '0:00';
+	scoreValueMoves.innerText = moves + ' moves';
+}
 //win pop up
 function displayModel(){
 	let shadowBack = document.createElement('div');
@@ -203,10 +211,6 @@ function displayModel(){
 		shadowBack.style.cssText = 'opacity:1';
 	}, 1);
 }
-
-	scoreValueTime.innerText = '0:00';
-	scoreValueMoves.innerText = moves + ' moves';
-}
 function fadeIn(el, time){
 	el.style.cssText = 'opacity:1';
 	setTimeout(function(){
@@ -237,6 +241,7 @@ function drag(ev) {
 		}
 	}
 }
+//allows for card to be dragged on mobile
 function mobiledrag(ev) {
 	dropArray = [];
 	ev.setAttribute("data-card", ev.id);
@@ -250,7 +255,7 @@ function mobiledrag(ev) {
 		}
 	}
 }
-
+//handles putting valid cards into the foundation piles
 function aceDrop(ev){
 	let data = ev.dataTransfer.getData("card");
 	let element = document.getElementById(data);
@@ -407,7 +412,7 @@ function startTimer(){
 		document.getElementsByClassName('scoreValue')[0].innerText = timerConvert(seconds);
 	}, 1000);
 }
-
+//resets waste and stack pile once all the cards in the stack are in waste
 function checkDealt(count){
 	if(toDeal[cardsDealt] == null){
 		cardsDealt++;
@@ -428,9 +433,10 @@ function checkDealt(count){
 		checkDealt(count);
 	}
 }
-
+//moves a card from stack to waste pile
 function dealCards(count, playBlock){
 	if(cardsDealt > lastCard){
+		//reset stack and waste pile to first draw
 		newCardFlipBlock.innerHTML = '';
 		newCardBlock.innerHTML = '';
 		newCardBlock.className = 'cardBlockNewClick cardHidden';
@@ -458,11 +464,12 @@ function dealCards(count, playBlock){
 				card.setAttribute('draggable', true);
 				card.setAttribute('deal-card', true);
 			}
-			card.addEventListener('dragstart', function(){
+			card.addEventListener('dragstart', function(e){
 				//console.log("drag start");
 				//console.log(event);
-				drag(event);
+				drag(e);
 			});
+			//for moving cards on mobile
 			card.addEventListener("touchmove", function(e) {
 				//console.log("touch start");
 				//console.log(e)

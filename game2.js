@@ -55,6 +55,7 @@ let dealer11Aces = 0;
 let playerTurn = true;
 let sum = 0;
 let deck;
+//checks if starting hand for player is a bust
 function checkStarterBust() {
     for(let i = 0; i < playerCards.length; i++) {
         sum += playerCards[i].value;
@@ -83,7 +84,7 @@ function checkBust(cardVal) {
 
 
 }
-
+//dealer keeps drawing cards until the card values are bigger than the player's or bust occurs
 function dealerWins() {
     let dealerSum = 0;
     let revealCard = dealerCards[0]; //hidden card is always in 0 index
@@ -173,7 +174,7 @@ function resultWindow(result) {
     
 
 }
-
+//erases previous stored game data and sets up the dealer and player with new cards
 function gameStart() {
     /*set up*/
     playerCards = [];
@@ -258,6 +259,10 @@ document.addEventListener("keydown", function(e) {
         window.location.href = "index.html"
     } else if(e.key === "r") {
         gameStart();
+    } else if(e.key === "h") {
+        hit();
+    } else if(e.key === "s") {
+        stand();
     }
 })
 gameStart();

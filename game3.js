@@ -48,7 +48,7 @@ class Deck {
     }
 }
 
-
+//draws a card from deck, duplicates it, and puts it in cardPairs for shuffling
 function drawPairs() {
     
     for(let i = 0; i < 8; i++) {
@@ -58,6 +58,7 @@ function drawPairs() {
         cardPairs.push(copyCard);
     }
 }
+//function that does the shuffling of cardPairs
 function pairShuffle() {
     let card1Index;
     let card2Index;
@@ -95,6 +96,8 @@ function unflip() {
     firstPicked = false;
     lock = false;
 }
+// checks if the two cards selected match, if they do, they stay revealed. If they don't match, flip them back over and
+//let the player pick another 2 cards.
 function checkMatch(e) {
     if(!firstPicked) {
         firstPick = e.currentTarget;
@@ -117,6 +120,7 @@ function checkMatch(e) {
         }
     }
 }
+//checks if all cards are revealed
 function checkWin() {
     if(pairedCardCounter == 16) {
         //console.log("win");
@@ -173,6 +177,7 @@ function gameStart() {
     lock = false;
     let container = document.getElementById("container");
     container.innerHTML="";
+    //places cards on the table
     for(let i =0; i < 4; i++) {
         let row = document.createElement("div");
         row.setAttribute("class", "row");
