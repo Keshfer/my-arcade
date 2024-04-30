@@ -143,6 +143,7 @@ function stand() {
     playerTurn = false;
     resultWindow(dealerWins())
 }
+//creates the result window pop up
 function resultWindow(result) {
     let bodyContainer = document.getElementsByTagName("body");
     let resultContainer = document.createElement("div");
@@ -153,10 +154,16 @@ function resultWindow(result) {
     let btnText = document.createTextNode("Play again")
     playBtn.append(btnText);
     playBtn.setAttribute("id", "playBtn");
-    //playBtn.innerText = "Play again";
     playBtn.addEventListener("click", function() {
         resultContainer.innerHTML = "";
         gameStart();
+    })
+    document.addEventListener("keydown", function(e) {
+        if(e.key === "r") {
+            resultContainer.innerHTML = "";
+            gameStart();
+        }
+
     })
 
     //let words = document.createElement("")
@@ -236,7 +243,12 @@ function gameStart() {
 
 
 }
-
+function restart() {
+    if(playerTurn) {
+        console.log(playerTurn);
+        gameStart()
+    }
+}
 let hitBtn = document.getElementById("hitBtn");
 hitBtn.addEventListener("click", function() {
     hit();
@@ -253,12 +265,12 @@ exitBtn.addEventListener("click", function() {
     window.location.href = "index.html";
 })
 let restartBtn = document.getElementById("restart");
-restartBtn.addEventListener("click", gameStart);
+restartBtn.addEventListener("click", restart);
 document.addEventListener("keydown", function(e) {
     if(e.key === "e") {
         window.location.href = "index.html"
     } else if(e.key === "r") {
-        gameStart();
+        restart();
     } else if(e.key === "h") {
         hit();
     } else if(e.key === "s") {

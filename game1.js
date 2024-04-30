@@ -48,6 +48,8 @@ restartBtn.addEventListener("click", function() {
 document.addEventListener("keydown", function(e) {
 	if(e.key === "r") {
 		gameStart();
+	} else if(e.key ==="e") {
+		window.location.href = "index.html";
 	}
 })
 scoreArea.append(restartBtn);
@@ -87,13 +89,6 @@ function gameStart(){
 		toDeal[i] = cards[i];
 	}
 	gameArea.innerHTML = '';
-
-	/*
-	let gameAreaSpan = document.createElement('span');
-	gameAreaSpan.id = 'gameAreaSpan';
-	gameAreaSpan.innerText = 'Press D to deal again';
-	gameArea.append(gameAreaSpan);
-	*/
 
 	/*stack pile*/
 	newCardBlock = document.createElement('div');
