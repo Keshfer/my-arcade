@@ -21,13 +21,7 @@ function clearGlobal(){
 	dropArray = [];
 	toDeal = [];
 }
-/*
-document.addEventListener('keydown', function(event) {
-	if (event.code == 'KeyD') {
-		gameStart();
-	}
-});
-*/
+
 let container = document.createElement('div');
 container.id = 'container';
 document.body.prepend(container);
